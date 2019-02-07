@@ -17,5 +17,4 @@ fi
 
 cd $HOME
 envsubst < /builds/generic-worker/generic-worker.yml.template > /builds/worker/tmp/generic-worker.yml
-ls -la /builds/worker/tmp/
 exec generic-worker run --config /builds/worker/tmp/${GENERIC_WORKER_CONF}.yml
