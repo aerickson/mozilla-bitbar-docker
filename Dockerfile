@@ -75,7 +75,6 @@ ADD https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip /builds
 COPY .bashrc /root/.bashrc
 COPY .bashrc /builds/worker/.bashrc
 COPY version /builds/worker/version
-COPY taskcluster /builds/taskcluster
 COPY generic-worker /builds/generic-worker
 COPY licenses /builds/worker/android-sdk-linux/licenses
 
@@ -95,7 +94,6 @@ RUN cd /tmp && \
     chmod +x /usr/local/bin/generic-worker && \
     chmod +x /usr/local/bin/tooltool.py && \
     chmod +x /usr/local/bin/entrypoint.* && \
-    chmod +x /builds/taskcluster/script.py && \
     mkdir /root/.android && \
     touch /root/.android/repositories.cfg && \
     tar xzf /builds/worker/Downloads/node-v8.11.3-linux-x64.tar.gz -C /usr/local --strip-components 1 && \
