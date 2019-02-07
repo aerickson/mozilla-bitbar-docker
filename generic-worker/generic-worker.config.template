@@ -6,5 +6,5 @@
     "provisionerId":              "proj-autophone",
     "workerGroup":                "${TC_WORKER_GROUP}",
     "workerId":                   "${DEVICE_NAME}",
-    "workerType":                 "#{TC_WORKER_TYPE}"
+    "workerType":                 "${TC_WORKER_TYPE}"
 }
