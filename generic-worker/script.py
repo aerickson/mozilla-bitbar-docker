@@ -50,8 +50,6 @@ def main():
     if not os.path.exists(artifacts):
         fatal('{} does not exist.'.format(artifacts))
 
-    # with open('/builds/taskcluster/scriptvars.json') as scriptvars:
-    #     scriptvarsenv = json.loads(scriptvars.read())
     print('Bitbar test run: https://mozilla.testdroid.com/#testing/device-session/{}/{}/{}'.format(
         os.environ['TESTDROID_PROJECT_ID'],
         os.environ['TESTDROID_BUILD_ID'],
