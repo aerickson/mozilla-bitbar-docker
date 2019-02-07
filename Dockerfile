@@ -94,6 +94,7 @@ RUN cd /tmp && \
     chmod +x /usr/local/bin/generic-worker && \
     chmod +x /usr/local/bin/tooltool.py && \
     chmod +x /usr/local/bin/entrypoint.* && \
+    chmod +x /builds/generic-worker/script.py && \
     mkdir /root/.android && \
     touch /root/.android/repositories.cfg && \
     tar xzf /builds/worker/Downloads/node-v8.11.3-linux-x64.tar.gz -C /usr/local --strip-components 1 && \
