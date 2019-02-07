@@ -109,7 +109,9 @@ RUN cd /tmp && \
     rm -rf /tmp/* && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /builds/worker/Downloads/* && \
-    chown -R root:root /builds
+    chown -R root:root /builds && \
+    chgrp -R worker /builds/generic-worker && \
+    chmod -R 775 /builds/generic-worker
 
 ENTRYPOINT ["entrypoint.sh"]
 USER worker
