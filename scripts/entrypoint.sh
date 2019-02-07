@@ -16,5 +16,5 @@ if [[ -e /test ]]; then
 fi
 
 cd $HOME
-cat /builds/generic-worker/generic-worker.config.template | envsubst > /builds/generic-worker/generic-worker.config
-exec generic-worker run --config /builds/generic-worker/${GENERIC_WORKER_CONF}.yml
+envsubst < /builds/generic-worker/generic-worker.config.template > /builds/worker/tmp/generic-worker.config
+exec generic-worker run --config /builds/worker/tmp/${GENERIC_WORKER_CONF}.yml
