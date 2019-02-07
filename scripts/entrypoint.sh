@@ -13,7 +13,6 @@ if [[ -e /test ]]; then
     ls -la /test
 fi
 
-#entrypoint.py
 cd $HOME
-# TODO: do envsubst on config file
+cat /builds/generic-worker/generic-worker.config.template | envsubst > /builds/generic-worker/generic-worker.config
 exec generic-worker run --config /builds/generic-worker/${GENERIC_WORKER_CONF}.yml
