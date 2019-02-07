@@ -13,6 +13,7 @@ if [[ -e /test ]]; then
     ls -la /test
 fi
 
-entrypoint.py
+#entrypoint.py
 cd $HOME
-exec taskcluster-worker work /builds/taskcluster/${TC_WORKER_CONF}.yml
+# TODO: do envsubst on config file
+exec generic-worker run --config /builds/generic-worker/${GENERIC_WORKER_CONF}.yml
