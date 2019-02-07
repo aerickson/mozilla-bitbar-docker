@@ -76,6 +76,7 @@ COPY .bashrc /root/.bashrc
 COPY .bashrc /builds/worker/.bashrc
 COPY version /builds/worker/version
 COPY taskcluster /builds/taskcluster
+COPY generic-worker /builds/generic-worker
 COPY licenses /builds/worker/android-sdk-linux/licenses
 
 # Add entrypoint script
