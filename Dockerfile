@@ -68,6 +68,7 @@ ADD https://dl.google.com/android/android-sdk_r24.3.4-linux.tgz /builds/worker/D
 #COPY downloads/android-sdk_r24.3.4-linux.tgz /builds/worker/Downloads
 
 ADD https://github.com/taskcluster/generic-worker/releases/download/v13.0.2/generic-worker-linux-amd64 /usr/local/bin/generic-worker
+#COPY downloads/generic-worker /usr/local/bin/generic-worker
 
 ADD https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip /builds/worker/Downloads
 #COPY downloads/sdk-tools-linux-4333796.zip /builds/worker/Downloads
