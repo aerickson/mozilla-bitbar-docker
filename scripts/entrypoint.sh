@@ -17,4 +17,9 @@ fi
 
 cd $HOME
 envsubst < /builds/generic-worker/generic-worker.yml.template > /builds/worker/tmp/generic-worker.yml
+
+# user.Current requires cgo, but cross-compilation doesn't enable cgo
+# this works around the issue (see https://github.com/golang/go/issues/14625
+# and https://github.com/ksonnet/ksonnet/issues/298)
+export USER=root
 exec generic-worker run --config /builds/worker/tmp/generic-worker.yml
