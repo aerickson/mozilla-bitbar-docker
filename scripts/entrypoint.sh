@@ -15,11 +15,15 @@ if [[ -e /test ]]; then
     ls -la /test
 fi
 
+WRITABLE_PATH=/builds/worker/tmp
+
 cd $HOME
-envsubst < /builds/generic-worker/generic-worker.yml.template > /builds/worker/tmp/generic-worker.yml
+generic-worker new-ed25519-keypair --file $WRITABLE_PATH/ed25519_private_key
+generic-worker new-openpgp-keypair --file $WRITABLE_PATH/openpgp_private_key
+envsubst < /builds/generic-worker/generic-worker.yml.template > $WRITABLE_PATH/generic-worker.yml
 
 # user.Current requires cgo, but cross-compilation doesn't enable cgo
 # this works around the issue (see https://github.com/golang/go/issues/14625
 # and https://github.com/ksonnet/ksonnet/issues/298)
 export USER=root
-exec generic-worker run --config /builds/worker/tmp/generic-worker.yml
+exec generic-worker run --config $WRITABLE_PATH/generic-worker.yml
