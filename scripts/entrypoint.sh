@@ -16,6 +16,8 @@ if [[ -e /test ]]; then
 fi
 
 WRITABLE_PATH=/builds/worker/tmp
+# we're not using livelog yet, set key to something so g-w will start
+export LIVELOG_SECRET='not_a_key'
 
 cd $HOME
 generic-worker new-ed25519-keypair --file $WRITABLE_PATH/ed25519_private_key
