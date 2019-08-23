@@ -85,12 +85,18 @@ def enable_charging(device, device_type):
                 % device_type
             )
             rc = 1
-    except (ADBTimeoutError, ADBError) as e:
+    except ADBError as e:
         print(
             "TEST-UNEXPECTED-FAIL | bitbar | Failed to enable charging. Contact Android Relops immediately."
         )
         print("{}: {}".format(e.__class__.__name__, e))
         rc = 1
+    except ADBTimeoutError as e:
+        print(
+            "TEST-WARNING | bitbar | Timed out trying to enable charging."
+        )
+        print("{}: {}".format(e.__class__.__name__, e))
+
 
     return rc
 
